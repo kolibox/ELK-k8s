@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+   name: logstash-deployment
+spec:
+   replicas: 1
+   selector:
+      matchLabels:
+         component: logstash
+   template:
+      metadata:
+          labels:
+              component: logstash
+      spec:
+         containers:
+            - name: logstash-container
+              image: docker.elastic.co/logstash/logstash:6.5.4
