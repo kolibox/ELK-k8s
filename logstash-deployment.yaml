@@ -15,3 +15,5 @@ spec:
          containers:
             - name: logstash-container
               image: docker.elastic.co/logstash/logstash:6.5.4
+#              command:
+#                 - --config.reload.automatic
