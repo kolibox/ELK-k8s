@@ -6,19 +6,16 @@ services:
 
 env:
   global:
-    # Do not prompt for user input when using any SDK methods.
-      - CLOUDSDK_CORE_DISABLE_PROMPTS=1
+# Do not prompt for user input when using any SDK methods.
+    - CLOUDSDK_CORE_DISABLE_PROMPTS=1
       
 #Installing Google SDK:
 before_install:
-   - if [ ! -d $HOME/google-cloud-sdk/bin ]; then
+   - if [ ! -d "$HOME/google-cloud-sdk/bin" ]; then rm -rf "$HOME/google-cloud-sdk"; curl https://sdk.cloud.google.com | bash > /dev/null; fi
 # The install script errors if this directory already exists,
 # but Travis already creates it when we mark it as cached.
-     rm -rf $HOME/google-cloud-sdk;
 # The install script is overly verbose, which sometimes causes
 # problems on Travis, so ignore stdout.
-     curl https://sdk.cloud.google.com | bash > /dev/null;
-     fi
 # This line is critical. We setup the SDK to take precedence in our
 # environment over the old SDK that is already on the machine.
    - source $HOME/google-cloud-sdk/path.bash.inc
