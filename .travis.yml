@@ -4,13 +4,20 @@ services:
 
 #Installing Google SDK:
 before_install:
-    - curl https://sdk.cloud.google.com | bash > /dev/null;
-    - source $HOME/google-cloud-sdk/path.bash.inc
-    - gcloud version || true
+#    - curl https://sdk.cloud.google.com | bash > /dev/null;
+#    - source $HOME/google-cloud-sdk/path.bash.inc
+#    - gcloud version || true
 #    - if [ ! -d "$HOME/google-cloud-sdk/bin" ]; then rm -rf $HOME/google-cloud-sdk; export CLOUDSDK_CORE_DISABLE_PROMPTS=1; curl https://sdk.cloud.google.com | bash; fi
-    - gcloud components list
-    - gcloud components install kubectl
-    - gcloud components list
+#    - gcloud components list
+#    - gcloud components install kubectl
+#    - gcloud components list
 #    - gcloud components update kubectl
-    - gcloud auth activate-service-account --key-file service-account.json
+#    - gcloud auth activate-service-account --key-file service-account.json
 #    - gcloud version
+
+
+   - curl -O https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-234.0.0-linux-x86_64.tar.gz
+   - tar zxvf google-cloud-sdk-234.0.0-linux-x86_64.tar.gz google-cloud-sdk
+   - ./google-cloud-sdk/install.sh
+   - gcloud components list
+   
