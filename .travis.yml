@@ -34,7 +34,9 @@ before_install:
 
 
 deploy:
-   - provider: script
-   - script: bash ./deploy.sh
-   on:
-      branch: master
+    kubectl apply -f elk
+    
+#   - provider: script
+#   - script: bash ./deploy.sh
+#   on:
+#      branch: master
