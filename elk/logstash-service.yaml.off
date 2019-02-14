@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+   name: logstash
+spec:
+   type: ClusterIP #internal network
+   ports:
+      - port: x
+        targetPort: x
+        name: port-x
+      - port: y
+        targetPort: y
+        name: port-y
+   selector:
+      component: logstash

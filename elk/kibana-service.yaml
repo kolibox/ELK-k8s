@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+   name: kibana
+spec:
+   type: ClusterIP #internal network
+   ports:
+      - port: 5601
+        targetPort: 5601
+        name: port-5601
+   selector:
+      component: kibana
