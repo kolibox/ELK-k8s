@@ -18,6 +18,6 @@ before_install:
 
    - curl -O https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-234.0.0-linux-x86_64.tar.gz
    - tar zxvf google-cloud-sdk-234.0.0-linux-x86_64.tar.gz google-cloud-sdk
-   - ./google-cloud-sdk/install.sh
+   - ./google-cloud-sdk/install.sh --disable-prompts
    - gcloud components list
    
