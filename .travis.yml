@@ -34,7 +34,7 @@ before_install:
 
 
 deploy:
-    kubectl apply -f elk
+    - kubectl apply -f elk
     
 #   - provider: script
 #   - script: bash ./deploy.sh
