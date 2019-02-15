@@ -33,6 +33,9 @@ spec:
               - chown -R 1000:1000 /usr/share/elasticsearch/data
               securityContext:
                  privileged: true
+              volumeMounts:
+              - name: data
+                mountPath: /usr/share/elasticsearch/data
             - name: increase-the-ulimit
               image: busybox
               command:
