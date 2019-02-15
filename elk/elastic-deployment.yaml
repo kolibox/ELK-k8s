@@ -47,12 +47,12 @@ spec:
             - name: check-elastic-rights
               image: busybox
               command:
-              - ls -al /usr/share/elasticsearch
+              - ls /usr/share/elasticsearch
               securityContext:
-                   privileged: true
+                privileged: true
               volumeMounts:
               - name: data
-                 mountPath: /usr/share/elasticsearch/data
+                mountPath: /usr/share/elasticsearch/data
          containers:
             - name: elasticsearch
               image: docker.elastic.co/elasticsearch/elasticsearch:6.5.4
