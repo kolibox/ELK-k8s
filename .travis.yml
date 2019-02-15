@@ -24,14 +24,10 @@ before_install:
    - gcloud config set project e-minutia-231605
    - gcloud config set compute/zone europe-north1-a
    - gcloud container clusters get-credentials elk
-
-
-
 #script:
 #   - pwd
-
 deploy:
   provider: script
-  script: bash deploy.sh
+  script: bash ./deploy.sh
   on:
      branch: master
