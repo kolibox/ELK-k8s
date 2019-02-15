@@ -44,6 +44,15 @@ spec:
               - ulimit -n 65536
               securityContext:
                 privileged: true
+            - name: check-elastic-rights
+              image: busybox
+              command:
+              - ls -al /usr/share/elasticsearch
+              securityContext:
+                   privileged: true
+              volumeMounts:
+              - name: data
+                 mountPath: /usr/share/elasticsearch/data
          containers:
             - name: elasticsearch
               image: docker.elastic.co/elasticsearch/elasticsearch:6.5.4
