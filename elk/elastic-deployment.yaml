@@ -12,10 +12,10 @@ spec:
           labels:
               component: elasticsearch
       spec:
-         #volumes:
-        #    - name: data
-        #      persistentVolumeClaim:
-        #         claimName: elasticsearch-data
+         volumes:
+            - name: data
+              persistentVolumeClaim:
+                 claimName: elasticsearch-data
          initContainers:
             - name: increase-the-vm-max-map-count
               image: busybox
@@ -25,14 +25,14 @@ spec:
               - vm.max_map_count=262144
               securityContext:
                  privileged: true
-#            - name: fix-the-volume-permission
-#              image: busybox
-#              command:
-#              - sh
-#              - -c
-#              - chown -R 1000:1000 /usr/share/elasticsearch/data
-#              securityContext:
-#                 privileged: true
+            - name: fix-the-volume-permission
+              image: busybox
+              command:
+              - sh
+              - -c
+              - chown -R 1000:1000 /usr/share/elasticsearch/data
+              securityContext:
+                 privileged: true
             - name: increase-the-ulimit
               image: busybox
               command:
@@ -47,7 +47,7 @@ spec:
               ports:
                  - containerPort: 9200
                  - containerPort: 9300
-        #      volumeMounts:
-        #         - name: data
-        #           mountPath: /usr/share/elasticsearch/data
-        #           subPath: es-data
+              volumeMounts:
+                 - name: data
+                   mountPath: /usr/share/elasticsearch/data
+                   subPath: es-data
