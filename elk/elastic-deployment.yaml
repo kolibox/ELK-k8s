@@ -47,7 +47,7 @@ spec:
             - name: check-elastic-rights
               image: busybox
               command:
-              - ls /usr/share/elasticsearch
+              - ls
               securityContext:
                 privileged: true
               volumeMounts:
